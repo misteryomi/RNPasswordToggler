@@ -17,7 +17,7 @@ const PasswordToggler = (props) => {
                 />              
                 <View style={styles.toggleStyle}>
                 <TouchableOpacity activeOpacity={0.7} style={styles.togglerBtn} onPress={() => setShow(!show)}>
-                    <Icon name={ show ? 'eye-with-line' : 'eye'} style={styles.toggleEye} />
+                    <Icon name={ show ? 'eye-with-line' : 'eye'} style={[styles.toggleEye, props.iconStyle]} />
                 </TouchableOpacity>
                 </View>
             </View>    
@@ -36,14 +36,14 @@ const styles = StyleSheet.create({
     },
     toggleStyle: {
         position: 'absolute', 
-        right: 10, 
-        top: '20%'
+        right: 0, 
+        top: 0,
     },
     togglerBtn: {
-        padding: 10
+        padding: 15,
     },
     toggleEye: {
-        fontSize: 15
+        fontSize: 20,
     }
 })
 
@@ -54,6 +54,10 @@ PasswordToggler.defaultProps = {
 PasswordToggler.propTypes = {
     ...TextInput.propTypes,
     show: PropTypes.bool,
+    iconStyle: PropTypes.oneOfType([
+        PropTypes.array,
+        PropTypes.object,
+      ])
 };
 
 export default PasswordToggler;

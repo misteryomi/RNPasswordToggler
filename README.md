@@ -41,6 +41,7 @@ export default class App extends Component {
 | Command | Description |
 | --- | --- |
 | `show` | Show or hide text input (Default: *false*) |
+| `iconStyle` | Custom style (Example: *{color: 'red'}*) |
 
 You can use default React Native's [TextInput props](https://facebook.github.io/react-native/docs/view#props) also.
 

@@ -1,8 +1,4 @@
 
-import { NativeModules } from 'react-native';
-import PasswordToggler from './PasswordToggler';
-
-
-//const { RNPasswordToggler } = NativeModules;
+import PasswordToggler from './src/PasswordToggler';
 
 export default PasswordToggler;
