@@ -1,0 +1,21 @@
+{
+  "name": "react-native-password-toggler",
+  "version": "1.0.2",
+  "description": "A Simple password toggler (Hide/Show) component for React Native's TextInput field",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "Misteryomi",
+  "license": "GPL-2.0",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react-native-vector-icons": "^6.5.0"
+  }
+}
