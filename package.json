@@ -17,5 +17,7 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react-native-vector-icons": "^6.5.0"
-  }
+  },
+  "homepage": "https://github.com/misteryomi/RNPasswordToggler",
+  "url" : "https://github.com/misteryomi/RNPasswordToggler/issues"
 }
