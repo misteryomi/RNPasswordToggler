@@ -11,8 +11,8 @@ const PasswordToggler = (props) => {
         return (
             <View style={styles.container}>
                 <TextInput 
-                style={[styles.inputStyle, props.inputStyle]} 
                 {...props}
+                style={[styles.inputStyle, props.inputStyle]} 
                 secureTextEntry={show} 
                 />              
                 <View style={styles.toggleStyle}>
