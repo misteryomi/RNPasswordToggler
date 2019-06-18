@@ -11,9 +11,9 @@ const PasswordToggler = (props) => {
         return (
             <View style={styles.container}>
                 <TextInput 
-                style={styles.inputStyle} 
-                secureTextEntry={show} 
+                style={[styles.inputStyle, props.inputStyle]} 
                 {...props}
+                secureTextEntry={show} 
                 />              
                 <View style={styles.toggleStyle}>
                 <TouchableOpacity activeOpacity={0.7} style={styles.togglerBtn} onPress={() => setShow(!show)}>
@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     inputStyle: {
         width: '100%',
         borderColor: '#000',
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#fff'
     },
     toggleStyle: {
         position: 'absolute', 
@@ -50,14 +51,15 @@ const styles = StyleSheet.create({
 PasswordToggler.defaultProps = {
     show: false,
 }
-
+const customStyle = PropTypes.oneOfType([
+                        PropTypes.array,
+                        PropTypes.object,
+                    ])
 PasswordToggler.propTypes = {
     ...TextInput.propTypes,
     show: PropTypes.bool,
-    iconStyle: PropTypes.oneOfType([
-        PropTypes.array,
-        PropTypes.object,
-      ])
+    iconStyle: customStyle,
+    inputStyle: customStyle,
 };
 
 export default PasswordToggler;
