@@ -12,16 +12,16 @@
   "author": "Misteryomi",
   "license": "GPL",
   "peerDependencies": {
-    "react-native": "^0.41.2"
+    "react-native": "^0.68.2"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
     "react-native-vector-icons": "^6.5.0"
   },
   "homepage": "https://github.com/misteryomi/RNPasswordToggler",
-  "url" : "https://github.com/misteryomi/RNPasswordToggler/issues",
+  "url": "https://github.com/misteryomi/RNPasswordToggler/issues",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/misteryomi/RNPasswordToggler"
+    "type": "git",
+    "url": "https://github.com/misteryomi/RNPasswordToggler"
   }
 }
