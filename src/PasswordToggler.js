@@ -3,10 +3,16 @@ import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import PropTypes from 'prop-types';
 
+const usePasswordToggle = (initialState = false) => {
+    const [show, setShow] = useState(initialState);
+    const toggle = useCallback(() => setShow(prev => !prev), []);
+    return { show, toggle };
+};
+
 
 const PasswordToggler = ({ show: initialShow, inputStyle, iconStyle, ...restProps }) => {
 
-    const [show, setShow] = useState(initialShow);
+    const { show, toggle } = usePasswordToggle(initialShow);
 
     return (
         <View style={styles.container}>
