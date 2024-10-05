@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import PropTypes from 'prop-types';
@@ -9,10 +9,20 @@ const usePasswordToggle = (initialState = false) => {
     return { show, toggle };
 };
 
+/**
+ * A password input component with a visibility toggle.
+ * @param {Object} props - The component props.
+ * @param {boolean} [props.show=false] - Initial visibility state of the password.
+ * @param {Object} [props.inputStyle] - Custom styles for the TextInput.
+ * @param {Object} [props.iconStyle] - Custom styles for the toggle icon.
+ */
 
 const PasswordToggler = ({ show: initialShow, inputStyle, iconStyle, ...restProps }) => {
 
     const { show, toggle } = usePasswordToggle(initialShow);
+
+    const iconName = useMemo(() => show ? 'eye-with-line' : 'eye', [show]);
+
 
     return (
         <View style={styles.container}>
@@ -27,8 +37,8 @@ const PasswordToggler = ({ show: initialShow, inputStyle, iconStyle, ...restProp
                     style={styles.togglerBtn}
                     accessibilityRole="button"
                     accessibilityLabel={show ? "Show password" : "Hide password"}
-                    onPress={() => setShow(!show)}>
-                    <Icon name={show ? 'eye-with-line' : 'eye'} style={[styles.toggleEye, props.iconStyle]} />
+                    onPress={() => toggle}>
+                    <Icon name={iconName} style={[styles.toggleEye, props.iconStyle]} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -36,15 +46,18 @@ const PasswordToggler = ({ show: initialShow, inputStyle, iconStyle, ...restProp
 
 }
 
+import { COLORS, SIZES } from '../utils/styles/styles';
+
+
 const styles = StyleSheet.create({
     container: {
         position: 'relative'
     },
     inputStyle: {
         width: '100%',
-        borderColor: '#000',
+        borderColor: COLORS.border,
         borderWidth: 1,
-        backgroundColor: '#fff'
+        backgroundColor: COLORS.background
     },
     toggleStyle: {
         position: 'absolute',
@@ -52,10 +65,10 @@ const styles = StyleSheet.create({
         top: 0,
     },
     togglerBtn: {
-        padding: 15,
+        padding: SIZES.padding,
     },
     toggleEye: {
-        fontSize: 20,
+        fontSize: SIZES.icon,
     }
 })
 
