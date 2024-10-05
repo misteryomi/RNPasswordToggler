@@ -2,11 +2,28 @@ import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import PropTypes from 'prop-types';
+import { COLORS, SIZES } from '../utils/styles/styles';
+
 
 const usePasswordToggle = (initialState = false) => {
     const [show, setShow] = useState(initialState);
     const toggle = useCallback(() => setShow(prev => !prev), []);
     return { show, toggle };
+};
+
+PasswordToggler.defaultProps = {
+    show: false,
+}
+const customStyle = PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.object,
+])
+
+PasswordToggler.propTypes = {
+    ...TextInput.propTypes,
+    show: PropTypes.bool,
+    iconStyle: customStyle,
+    inputStyle: customStyle,
 };
 
 /**
@@ -46,9 +63,6 @@ const PasswordToggler = ({ show: initialShow, inputStyle, iconStyle, ...restProp
 
 }
 
-import { COLORS, SIZES } from '../utils/styles/styles';
-
-
 const styles = StyleSheet.create({
     container: {
         position: 'relative'
@@ -71,19 +85,5 @@ const styles = StyleSheet.create({
         fontSize: SIZES.icon,
     }
 })
-
-PasswordToggler.defaultProps = {
-    show: false,
-}
-const customStyle = PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.object,
-])
-PasswordToggler.propTypes = {
-    ...TextInput.propTypes,
-    show: PropTypes.bool,
-    iconStyle: customStyle,
-    inputStyle: customStyle,
-};
 
 export default PasswordToggler;
