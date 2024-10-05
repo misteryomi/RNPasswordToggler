@@ -16,7 +16,12 @@ const PasswordToggler = ({ show: initialShow, inputStyle, iconStyle, ...restProp
                 secureTextEntry={show}
             />
             <View style={styles.toggleStyle}>
-                <TouchableOpacity activeOpacity={0.7} style={styles.togglerBtn} onPress={() => setShow(!show)}>
+                <TouchableOpacity
+                    activeOpacity={0.7}
+                    style={styles.togglerBtn}
+                    accessibilityRole="button"
+                    accessibilityLabel={show ? "Show password" : "Hide password"}
+                    onPress={() => setShow(!show)}>
                     <Icon name={show ? 'eye-with-line' : 'eye'} style={[styles.toggleEye, props.iconStyle]} />
                 </TouchableOpacity>
             </View>
