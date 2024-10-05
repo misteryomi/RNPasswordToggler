@@ -4,24 +4,24 @@ import Icon from 'react-native-vector-icons/Entypo';
 import PropTypes from 'prop-types';
 
 
-const PasswordToggler = (props) => {
+const PasswordToggler = ({ show: initialShow, inputStyle, iconStyle, ...restProps }) => {
 
-        const [show, setShow] = useState(props.show);
+    const [show, setShow] = useState(initialShow);
 
-        return (
-            <View style={styles.container}>
-                <TextInput 
+    return (
+        <View style={styles.container}>
+            <TextInput
                 {...props}
-                style={[styles.inputStyle, props.inputStyle]} 
-                secureTextEntry={show} 
-                />              
-                <View style={styles.toggleStyle}>
+                style={[styles.inputStyle, props.inputStyle]}
+                secureTextEntry={show}
+            />
+            <View style={styles.toggleStyle}>
                 <TouchableOpacity activeOpacity={0.7} style={styles.togglerBtn} onPress={() => setShow(!show)}>
-                    <Icon name={ show ? 'eye-with-line' : 'eye'} style={[styles.toggleEye, props.iconStyle]} />
+                    <Icon name={show ? 'eye-with-line' : 'eye'} style={[styles.toggleEye, props.iconStyle]} />
                 </TouchableOpacity>
-                </View>
-            </View>    
-        )
+            </View>
+        </View>
+    )
 
 }
 
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     toggleStyle: {
-        position: 'absolute', 
-        right: 0, 
+        position: 'absolute',
+        right: 0,
         top: 0,
     },
     togglerBtn: {
@@ -52,9 +52,9 @@ PasswordToggler.defaultProps = {
     show: false,
 }
 const customStyle = PropTypes.oneOfType([
-                        PropTypes.array,
-                        PropTypes.object,
-                    ])
+    PropTypes.array,
+    PropTypes.object,
+])
 PasswordToggler.propTypes = {
     ...TextInput.propTypes,
     show: PropTypes.bool,
